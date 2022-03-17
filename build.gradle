@@ -6,7 +6,8 @@ buildscript {
     }
     dependencies {
         classpath "com.android.tools.build:gradle:${DepVersion.buildGradleVersion}"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${DepVersion.kotlinVersion}"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:${DepVersion.navigationVersion}"
     }
 }
 task clean(type: Delete) {

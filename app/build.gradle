@@ -62,6 +62,8 @@ dependencies {
     implementation AppDep.fragment
     implementation AppDep.activity
 
+    implementation project(ModulesDep.navigation)
+
     testImplementation AppDep.junit
     androidTestImplementation AppDep.extJunit
     androidTestImplementation AppDep.espresso

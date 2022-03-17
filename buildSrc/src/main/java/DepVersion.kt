@@ -1,6 +1,6 @@
 object DepVersion {
     const val buildGradleVersion = "7.0.3"
-    const val kotlinVersion = "1.6.0"
+    const val kotlinVersion = "1.6.10"
 
     const val appcompatVersion = "1.3.1"
     const val coreKtxVersion = "1.6.0"
@@ -9,6 +9,9 @@ object DepVersion {
     const val fragmentVersion = "1.4.0"
     const val activityVersion = "1.4.0"
     const val lifecycleVersion = "2.4.0"
+
+    const val navigationVersion = "2.3.5"
+    const val navigationSafeArgsVersion = "2.3.5"
 
     const val junitVersion = "4.13.2"
     const val junitExtVersion = "1.1.3"
