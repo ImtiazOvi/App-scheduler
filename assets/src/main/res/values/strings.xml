@@ -3,4 +3,5 @@
     <string name="app_name">App Scheduler</string>
     <string name="title_home">Home</string>
     <string name="image_content_description">image_content_description</string>
+    <string name="message_no_schedule_yet">No schedule yet</string>
 </resources>

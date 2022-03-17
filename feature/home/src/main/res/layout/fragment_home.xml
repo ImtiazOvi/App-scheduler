@@ -14,4 +14,46 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/scheduleRv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolBarInc" />
+
+    <com.meimtiaz.assets.CustomTV
+        android:id="@+id/noScheduleTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/message_no_schedule_yet"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/caption"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolBarInc" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/addScheduleCv"
+        android:layout_width="@dimen/m56"
+        android:layout_height="@dimen/m56"
+        android:layout_margin="@dimen/m16"
+        app:cardBackgroundColor="@color/colorPrimary"
+        app:cardCornerRadius="@dimen/m16"
+        app:cardElevation="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/addIv"
+            android:layout_width="@dimen/m34"
+            android:layout_height="@dimen/m34"
+            android:layout_gravity="center"
+            android:contentDescription="@string/image_content_description"
+            android:src="@drawable/ic_plus" />
+
+    </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
