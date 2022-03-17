@@ -8,6 +8,7 @@ object DepVersion {
     const val materialVersion = "1.4.0"
     const val fragmentVersion = "1.4.0"
     const val activityVersion = "1.4.0"
+    const val lifecycleVersion = "2.4.0"
 
     const val junitVersion = "4.13.2"
     const val junitExtVersion = "1.1.3"

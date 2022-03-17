@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 rootProject.name = "App scheduler"
 include ':app'
 include ':assets'
+include ':common'

@@ -5,6 +5,8 @@ object AppDep {
     const val material = "com.google.android.material:material:${DepVersion.materialVersion}"
     const val fragment = "androidx.fragment:fragment-ktx:${DepVersion.fragmentVersion}"
     const val activity = "androidx.activity:activity-ktx:${DepVersion.activityVersion}"
+    const val liveData = "androidx.lifecycle:lifecycle-livedata-ktx:${DepVersion.lifecycleVersion}"
+
 
     const val junit = "junit:junit:${DepVersion.junitVersion}"
     const val extJunit = "androidx.test.ext:junit:${DepVersion.junitExtVersion}"
