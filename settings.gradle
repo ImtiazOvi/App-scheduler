@@ -16,3 +16,4 @@ rootProject.name = "App scheduler"
 include ':app'
 include ':assets'
 include ':common'
+include ':library:sharedpreference'
