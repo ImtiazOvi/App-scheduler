@@ -33,4 +33,22 @@ dependencies {
     testImplementation AppDep.junit
     androidTestImplementation AppDep.extJunit
     androidTestImplementation AppDep.espresso
+    implementation AppDep.coreKtx
+    implementation AppDep.viewModel
+    implementation AppDep.lifecycle
+    implementation AppDep.liveData
+
+    implementation AppDep.hiltAndroid
+    implementation AppDep.dagger
+    kapt AppDep.hiltCompiler
+    kapt AppDep.daggerCompiler
+
+    implementation AppDep.retrofit
+    implementation AppDep.retrofitGsonConverter
+    implementation AppDep.rxJava3adapter
+    implementation AppDep.timber
+
+    testImplementation AppDep.junit
+    androidTestImplementation AppDep.extJunit
+    androidTestImplementation AppDep.espresso
 }

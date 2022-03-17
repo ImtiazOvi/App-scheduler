@@ -18,8 +18,8 @@ android {
 
     buildTypes {
         debug {
-            minifyEnabled true
-            shrinkResources true
+            minifyEnabled false
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
 
@@ -56,12 +56,21 @@ def renameAPK(applicationVariants, defaultConfig) {
 
 
 dependencies {
+
     implementation AppDep.coreKtx
     implementation AppDep.material
     implementation AppDep.appCompat
     implementation AppDep.fragment
     implementation AppDep.activity
+    implementation AppDep.recyclerview
+    implementation AppDep.cardView
+    implementation AppDep.viewModel
+    implementation AppDep.liveData
     implementation AppDep.constraintLayout
+    implementation AppDep.preference
+    implementation AppDep.lifecycle
+
+
 
     implementation AppDep.navigationUi
     implementation AppDep.navigationFragment
@@ -76,6 +85,9 @@ dependencies {
     kapt AppDep.hiltCompiler
     implementation AppDep.timber
 
+    implementation AppDep.room
+    implementation AppDep.roomRuntime
+    kapt AppDep.roomCompiler
 
     testImplementation AppDep.junit
     androidTestImplementation AppDep.extJunit

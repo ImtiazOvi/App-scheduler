@@ -3,14 +3,34 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        jcenter()
+        maven { url "https://jitpack.io" }
     }
     dependencies {
         classpath "com.android.tools.build:gradle:${DepVersion.buildGradleVersion}"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${DepVersion.kotlinVersion}"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:${DepVersion.navigationVersion}"
         classpath "com.google.dagger:hilt-android-gradle-plugin:${DepVersion.hiltVersion}"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:${DepVersion.navigationVersion}"
     }
 }
+
+
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+subprojects {
+    plugins.withType(com.android.build.gradle.BasePlugin){
+        android {
+            buildFeatures{
+                viewBinding = true
+                dataBinding = true
+            }
+            compileOptions {
+                sourceCompatibility JavaVersion.VERSION_1_8
+                targetCompatibility JavaVersion.VERSION_1_8
+            }
+        }
+    }
 }

@@ -5,7 +5,11 @@ plugins {
 apply from: "$rootDir/android-config-dependencies.gradle"
 dependencies {
     implementation AppDep.appCompat
+    implementation AppDep.fragment
     implementation AppDep.activity
     implementation AppDep.material
     implementation AppDep.liveData
+    implementation AppDep.viewModel
+    implementation project(ModulesDep.assets)
+
 }

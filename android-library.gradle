@@ -38,6 +38,7 @@ dependencies {
     implementation AppDep.fragment
     implementation AppDep.activity
     implementation AppDep.constraintLayout
+    implementation project(ModulesDep.navigation)
 
     implementation AppDep.navigationUi
     implementation AppDep.navigationFragment
@@ -47,6 +48,38 @@ dependencies {
 
     implementation project(ModulesDep.common)
     implementation project(ModulesDep.assets)
+
+    testImplementation AppDep.junit
+    androidTestImplementation AppDep.extJunit
+    androidTestImplementation AppDep.espresso
+
+
+
+    implementation project(ModulesDep.assets)
+    implementation project(ModulesDep.common)
+
+    implementation AppDep.coreKtx
+    implementation AppDep.appCompat
+    implementation AppDep.material
+    implementation AppDep.activity
+    implementation AppDep.fragment
+    implementation AppDep.recyclerview
+    implementation AppDep.constraintLayout
+    implementation AppDep.viewModel
+    implementation AppDep.lifecycle
+    implementation AppDep.liveData
+    implementation AppDep.navigationUi
+    implementation AppDep.navigationFragment
+
+    implementation project(ModulesDep.navigation)
+
+    implementation AppDep.navigationUi
+    implementation AppDep.hiltAndroid
+    implementation AppDep.dagger
+    kapt AppDep.hiltCompiler
+    kapt AppDep.daggerCompiler
+
+    implementation AppDep.timber
 
     testImplementation AppDep.junit
     androidTestImplementation AppDep.extJunit
