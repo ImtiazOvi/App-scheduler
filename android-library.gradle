@@ -33,11 +33,20 @@ android{
 
 dependencies {
     implementation AppDep.coreKtx
-    implementation AppDep.appCompat
     implementation AppDep.material
-    implementation AppDep.activity
+    implementation AppDep.appCompat
     implementation AppDep.fragment
+    implementation AppDep.activity
     implementation AppDep.constraintLayout
+
+    implementation AppDep.navigationUi
+    implementation AppDep.navigationFragment
+    implementation AppDep.hiltAndroid
+    kapt AppDep.hiltCompiler
+    implementation AppDep.timber
+
+    implementation project(ModulesDep.common)
+    implementation project(ModulesDep.assets)
 
     testImplementation AppDep.junit
     androidTestImplementation AppDep.extJunit

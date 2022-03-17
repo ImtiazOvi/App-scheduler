@@ -12,6 +12,8 @@ object DepVersion {
 
     const val navigationVersion = "2.3.5"
     const val navigationSafeArgsVersion = "2.3.5"
+    const val hiltVersion = "2.39.1"
+    const val timberVersion = "5.0.1"
 
     const val junitVersion = "4.13.2"
     const val junitExtVersion = "1.1.3"

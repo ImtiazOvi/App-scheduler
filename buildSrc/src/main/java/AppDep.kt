@@ -12,7 +12,10 @@ object AppDep {
     const val navigationUi = "androidx.navigation:navigation-ui-ktx:${DepVersion.navigationVersion}"
     const val navigationSafeArgs = "androidx.navigation:navigation-safe-args-gradle-plugin:${DepVersion.navigationSafeArgsVersion}"
 
+    const val hiltAndroid = "com.google.dagger:hilt-android:${DepVersion.hiltVersion}"
+    const val hiltCompiler = "com.google.dagger:hilt-android-compiler:${DepVersion.hiltVersion}"
 
+    const val timber = "com.jakewharton.timber:timber:${DepVersion.timberVersion}"
 
     const val junit = "junit:junit:${DepVersion.junitVersion}"
     const val extJunit = "androidx.test.ext:junit:${DepVersion.junitExtVersion}"

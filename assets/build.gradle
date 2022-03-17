@@ -6,4 +6,5 @@ apply from: "$rootDir/android-config-dependencies.gradle"
 dependencies {
     implementation AppDep.appCompat
     implementation AppDep.material
+    implementation AppDep.activity
 }
