@@ -82,6 +82,7 @@ dependencies {
 
     implementation project(ModulesDep.home)
     implementation project(ModulesDep.addSchedule)
+    implementation project(ModulesDep.searchApp)
 
     implementation AppDep.hiltAndroid
     kapt AppDep.hiltCompiler

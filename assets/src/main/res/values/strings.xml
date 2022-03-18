@@ -11,6 +11,7 @@
     <string name="title_home">Home</string>
     <string name="title_add_schedule">Add Schedule</string>
     <string name="title_schedule">Schedule</string>
+    <string name="title_search_app">Search App</string>
 
     <string name="caption_app_name">App Name:</string>
     <string name="caption_start_at">Start at:</string>
@@ -19,5 +20,6 @@
     <string name="caption_select_time">Select Time</string>
 
     <string name="hint_search_app_name">Search app name</string>
+    <string name="hint_write_app_name">Write app name(Ex: Map)</string>
 
 </resources>

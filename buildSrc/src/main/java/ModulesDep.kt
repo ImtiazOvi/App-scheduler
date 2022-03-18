@@ -7,4 +7,5 @@ object ModulesDep {
 
     const val home = ":feature:home"
     const val addSchedule = ":feature:addschedule"
+    const val searchApp = ":feature:searchapp"
 }

@@ -13,8 +13,9 @@ import com.meimtiaz.common.extfun.clickWithDebounce
 import com.meimtiaz.common.extfun.navigationBackStackResultLiveData
 import dagger.hilt.android.AndroidEntryPoint
 
+
 @AndroidEntryPoint
-class AddScheduleFragment:BaseFragment<FragmentAddScheduleBinding>() {
+class AddScheduleFragment:BaseFragment<FragmentAddScheduleBinding>(){
 
     override fun viewBindingLayout(): FragmentAddScheduleBinding = FragmentAddScheduleBinding.inflate(layoutInflater)
 
@@ -37,13 +38,19 @@ class AddScheduleFragment:BaseFragment<FragmentAddScheduleBinding>() {
                 AddScheduleFragmentDirections.actionAddScheduleFragmentToCalenderDialog(binding.scheduleDateTv.text.toString()))
         }
 
-
         /**
          * ...choose time from time picker dialog
          * ...pass selected time if already selected
          */
         binding.scheduleTimeTv.clickWithDebounce {
             showTimePicker(binding.scheduleTimeTv)
+        }
+
+        /**
+         * ...tap to navigate app search screen
+         */
+        binding.appSearchEt.clickWithDebounce {
+            findNavController().navigate(AddScheduleFragmentDirections.actionAddScheduleFragmentToSearchAppFragment())
         }
 
         /**

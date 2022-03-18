@@ -2,7 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <include
         android:id="@+id/toolBarInc"
@@ -27,7 +28,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolBarInc" />
 
-    <com.meimtiaz.assets.CustomET
+    <com.meimtiaz.assets.CustomTV
         android:id="@+id/appSearchEt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -52,16 +53,15 @@
         app:layout_constraintStart_toStartOf="@+id/appSearchEt"
         app:layout_constraintTop_toBottomOf="@+id/appSearchEt" />
 
-    <ImageView
-        android:id="@+id/clearAppSearchEtTextIv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/image_content_description"
-        android:src="@drawable/ic_close"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="@+id/appSearchEt"
-        app:layout_constraintEnd_toEndOf="@+id/appSearchEt"
-        app:layout_constraintTop_toTopOf="@+id/appSearchEt" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/appRv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        tools:listitem="@layout/item_app"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appSearchEtBottomLine" />
 
     <com.meimtiaz.assets.CustomSemiBoldTV
         android:id="@+id/scheduleDateTv"

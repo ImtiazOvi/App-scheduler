@@ -9,6 +9,7 @@
       <module name="App_scheduler.domain" target="11" />
       <module name="App_scheduler.feature.addschedule" target="11" />
       <module name="App_scheduler.feature.home" target="11" />
+      <module name="App_scheduler.feature.searchapp" target="11" />
       <module name="App_scheduler.library.sharedpreference" target="11" />
       <module name="App_scheduler.navigation" target="11" />
     </bytecodeTargetLevel>

@@ -20,6 +20,19 @@
         <action
             android:id="@+id/action_addScheduleFragment_to_calenderDialog"
             app:destination="@id/calenderDialog" />
+        <action
+            android:id="@+id/action_addScheduleFragment_to_searchAppFragment"
+            app:destination="@id/searchAppFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/searchAppFragment"
+        android:name="com.meimtiaz.searchapp.SearchAppFragment"
+        android:label="SearchAppFragment">
+        <argument
+            android:name="selectedAppName"
+            android:defaultValue=""
+            app:argType="string" />
     </fragment>
 
     <dialog
