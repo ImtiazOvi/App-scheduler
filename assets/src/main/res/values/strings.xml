@@ -4,4 +4,8 @@
     <string name="title_home">Home</string>
     <string name="image_content_description">image_content_description</string>
     <string name="message_no_schedule_yet">No schedule yet</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_edit">Edit</string>
+    <string name="caption_app_name">App Name:</string>
+    <string name="caption_start_at">Start at:</string>
 </resources>

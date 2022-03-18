@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rootCl"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/m16"
+        android:layout_marginTop="@dimen/m8"
+        android:layout_marginEnd="@dimen/m16"
+        android:layout_marginBottom="@dimen/m8"
+        android:background="@drawable/bg_solid_white_gray_stroke_r10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.meimtiaz.assets.CustomTV
+            android:id="@+id/appNameTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/m16"
+            android:layout_marginTop="@dimen/m16"
+            android:text="@string/caption_app_name"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.meimtiaz.assets.CustomBoldTv
+            android:id="@+id/appNameValueTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/m16"
+            android:layout_marginEnd="@dimen/m16"
+            android:lineSpacingExtra="1dp"
+            android:maxLines="2"
+            android:textSize="@dimen/subtitle_1_regular"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/appNameTv"
+            app:layout_constraintTop_toTopOf="@+id/appNameTv"
+            tools:text="Google Assistant Google Assistant Google Assistant" />
+
+        <com.meimtiaz.assets.CustomTV
+            android:id="@+id/startAtTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/m16"
+            android:layout_marginTop="@dimen/m16"
+            android:text="@string/caption_start_at"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appNameValueTv" />
+
+        <com.meimtiaz.assets.CustomBoldTv
+            android:id="@+id/startAtValueTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/m16"
+            android:layout_marginEnd="@dimen/m16"
+            android:lineSpacingExtra="1dp"
+            android:maxLines="2"
+            android:textSize="@dimen/subtitle_1_regular"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/appNameTv"
+            app:layout_constraintTop_toTopOf="@+id/startAtTv"
+            tools:text="Google Assistant Google Assistant Google Assistant" />
+
+        <View
+            android:id="@+id/dividerLine"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/m16"
+            android:background="@color/gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/startAtValueTv" />
+
+        <com.meimtiaz.assets.CustomTV
+            android:id="@+id/cancelTv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/red"
+            android:gravity="center"
+            android:text="@string/button_cancel"
+            android:textColor="@color/white"
+            android:textSize="@dimen/subtitle_1_regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/editTv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dividerLine" />
+
+        <com.meimtiaz.assets.CustomTV
+            android:id="@+id/editTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/green"
+            android:gravity="center"
+            android:padding="@dimen/m16"
+            android:text="@string/button_edit"
+            android:textColor="@color/white"
+            android:textSize="@dimen/subtitle_1_regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cancelTv"
+            app:layout_constraintTop_toBottomOf="@+id/dividerLine" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
