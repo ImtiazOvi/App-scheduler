@@ -1,6 +1,8 @@
 package com.meimtiaz.searchapp
 
-import android.content.pm.PackageInfo
+import android.content.Intent
+import android.content.pm.ApplicationInfo
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.widget.EditText
 import androidx.core.view.isVisible
@@ -20,7 +22,6 @@ class SearchAppFragment:BaseFragment<FragmentSearchAppBinding>(), AppSelectionAd
     override fun viewBindingLayout(): FragmentSearchAppBinding = FragmentSearchAppBinding.inflate(layoutInflater)
 
     private var adapter by autoCleared<AppSelectionAdapter>()
-    private var packages = listOf<PackageInfo>()
 
     override fun initializeView(savedInstanceState: Bundle?) {
         /** @toolBarInc common toolbar title text changed **/
@@ -39,12 +40,13 @@ class SearchAppFragment:BaseFragment<FragmentSearchAppBinding>(), AppSelectionAd
             binding.appSearchEt.setText("")
         }
 
-        packages = requireActivity().packageManager.getInstalledPackages(0)
         adapter = AppSelectionAdapter(requireContext())
         adapter.setOnAdapterClickListener(this)
-        adapter.setInstalledAppList(packages)
+        adapter.setInstalledAppList(getUserInstalledApplications())
         requireContext().setUpVerticalRecyclerView(binding.appRv, adapter)
         binding.appSearchEt.afterTextChange()
+
+
     }
 
 
@@ -63,16 +65,40 @@ class SearchAppFragment:BaseFragment<FragmentSearchAppBinding>(), AppSelectionAd
      * ...filter list after getting appSearchEt text
      */
     private fun filter(text: String?) {
-        val searchResultAppList: MutableList<PackageInfo> = ArrayList()
-        for (appPackage in packages) {
-            if (appPackage.applicationInfo.loadLabel(requireActivity().packageManager).toString().lowercase().contains(text.toString().lowercase())) {
+        val searchResultAppList: MutableList<ApplicationInfo> = ArrayList()
+        for (appPackage in getUserInstalledApplications()) {
+            if (appPackage.loadLabel(requireActivity().packageManager).toString().lowercase().contains(text.toString().lowercase())) {
                 searchResultAppList.add(appPackage)
             }
         }
         adapter.setInstalledAppList(searchResultAppList)
     }
 
+    /**
+     * Return list of installed user applications
+     */
+    private fun getUserInstalledApplications(): List<ApplicationInfo> {
+        // Get installed applications
+        val packageManager: PackageManager = requireContext().packageManager
+        val installedApplications = packageManager.getInstalledApplications(PackageManager.GET_META_DATA)
 
-    override fun onLocationItemClick(packageInfo: PackageInfo) {}
+        // Remove system apps
+        val it = installedApplications.iterator()
+        while (it.hasNext()) {
+            val appInfo = it.next()
+            if (appInfo.flags and ApplicationInfo.FLAG_SYSTEM != 0) {
+                it.remove()
+            }
+        }
+
+        // Return installed applications
+        return installedApplications
+    }
+
+    override fun onLocationItemClick(packageInfo: ApplicationInfo) {
+        val launchIntent: Intent? = requireActivity().packageManager.getLaunchIntentForPackage(packageInfo.packageName)
+        startActivity(launchIntent)
+    }
+
 
 }

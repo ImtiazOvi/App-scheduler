@@ -1,7 +1,8 @@
 package com.meimtiaz.searchapp
 
 import android.content.Context
-import android.content.pm.PackageInfo
+import android.content.pm.ApplicationInfo
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -21,7 +22,7 @@ class AppSelectionAdapter(
         }
     }
 
-    private var packages = listOf<PackageInfo>()
+    private var packages = listOf<ApplicationInfo>()
 
     private lateinit var listener: OnAdapterClickListener
 
@@ -31,23 +32,23 @@ class AppSelectionAdapter(
     }
 
     override fun onBindViewHolder(holder: LocationAdapterViewHolder, position: Int) {
-        holder.binding.appNameTv.text = packages[position].applicationInfo.loadLabel(context.packageManager).toString()
+        holder.binding.appNameTv.text = packages[position].loadLabel(context.packageManager).toString()
         holder.binding.packageNameTv.text = packages[position].packageName
-      //  holder.binding.appIconIv. = installedAppList[position].appIcon
-
+        val packageIcon: Drawable = context.packageManager.getApplicationIcon(packages[position])
+        holder.binding.appIconIv.setImageDrawable(packageIcon)
 
     }
 
     override fun getItemCount(): Int = packages.size
 
-    fun setInstalledAppList(packages: List<PackageInfo>){
+    fun setInstalledAppList(packages: List<ApplicationInfo>){
         this.packages = packages
         notifyDataSetChanged()
     }
 
 
     interface OnAdapterClickListener{
-        fun onLocationItemClick(packageInfo: PackageInfo)
+        fun onLocationItemClick(packageInfo: ApplicationInfo)
     }
 
     fun setOnAdapterClickListener(listener: OnAdapterClickListener){
