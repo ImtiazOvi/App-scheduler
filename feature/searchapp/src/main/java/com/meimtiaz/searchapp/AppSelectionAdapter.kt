@@ -45,6 +45,7 @@ class AppSelectionAdapter(
         notifyDataSetChanged()
     }
 
+
     interface OnAdapterClickListener{
         fun onLocationItemClick(packageInfo: PackageInfo)
     }

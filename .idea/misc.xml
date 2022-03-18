@@ -16,6 +16,8 @@
         <entry key="feature/addschedule/src/main/res/layout/fragment_add_schedule.xml" value="0.125" />
         <entry key="feature/addschedule/src/main/res/layout/item_app.xml" value="0.25" />
         <entry key="feature/home/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="feature/searchapp/src/main/res/layout/fragment_search_app.xml" value="0.25" />
+        <entry key="feature/searchapp/src/main/res/layout/item_app.xml" value="0.23052536231884058" />
       </map>
     </option>
   </component>

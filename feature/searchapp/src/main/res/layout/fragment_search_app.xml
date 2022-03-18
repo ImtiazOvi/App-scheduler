@@ -14,25 +14,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.meimtiaz.assets.CustomSemiBoldTV
-        android:id="@+id/installedAppNameTv"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/m16"
-        android:layout_marginTop="@dimen/m16"
-        android:layout_marginEnd="@dimen/m16"
-        android:text="@string/caption_installed_app_name"
-        android:textColor="@color/black"
-        android:textSize="@dimen/subtitle_1_regular"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolBarInc" />
 
     <com.meimtiaz.assets.CustomET
         android:id="@+id/appSearchEt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/m8"
+        android:layout_marginStart="@dimen/m16"
+        android:layout_marginTop="@dimen/m16"
+        android:layout_marginEnd="@dimen/m16"
         android:background="@null"
         android:hint="@string/hint_write_app_name"
         android:maxLines="1"
@@ -40,9 +29,9 @@
         android:textColor="@color/black"
         android:textColorHint="@color/gray"
         android:textSize="@dimen/body_2_medium"
-        app:layout_constraintEnd_toEndOf="@+id/installedAppNameTv"
-        app:layout_constraintStart_toStartOf="@+id/installedAppNameTv"
-        app:layout_constraintTop_toBottomOf="@+id/installedAppNameTv" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolBarInc" />
 
     <ImageView
         android:id="@+id/clearAppSearchEtTextIv"
@@ -50,7 +39,7 @@
         android:layout_height="wrap_content"
         android:contentDescription="@string/image_content_description"
         android:src="@drawable/ic_close"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/appSearchEt"
         app:layout_constraintEnd_toEndOf="@+id/appSearchEt"
         app:layout_constraintTop_toTopOf="@+id/appSearchEt" />
