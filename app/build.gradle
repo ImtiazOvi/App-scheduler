@@ -76,6 +76,7 @@ dependencies {
     implementation AppDep.navigationFragment
 
     implementation project(ModulesDep.domain)
+    implementation project(ModulesDep.data)
     implementation project(ModulesDep.cache)
     implementation project(ModulesDep.common)
     implementation project(ModulesDep.assets)

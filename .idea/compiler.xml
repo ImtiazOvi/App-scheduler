@@ -7,6 +7,7 @@
       <module name="App_scheduler.buildSrc" target="11" />
       <module name="App_scheduler.cache" target="11" />
       <module name="App_scheduler.common" target="11" />
+      <module name="App_scheduler.data" target="11" />
       <module name="App_scheduler.domain" target="11" />
       <module name="App_scheduler.feature.addschedule" target="11" />
       <module name="App_scheduler.feature.home" target="11" />
