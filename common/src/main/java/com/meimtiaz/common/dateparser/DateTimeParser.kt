@@ -36,4 +36,35 @@ object DateTimeParser {
         return formatDate
     }
 
+    fun convert24HourFormatTo12HourFormat(time : String) : String {
+        return try {
+            val sdf = SimpleDateFormat("H:mm", Locale.US)
+            val dateObj = sdf.parse(time)
+            SimpleDateFormat("hh:mm aa", Locale.US).format(dateObj)
+        } catch (e: ParseException) {
+            ""
+        }
+    }
+
+    fun convert12HourFormatTo24HourFormat(time : String) : String {
+        return try {
+            val sdf = SimpleDateFormat("hh:mm aa", Locale.US)
+            val dateObj = sdf.parse(time)
+            SimpleDateFormat("H:mm", Locale.US).format(dateObj)
+        } catch (e: ParseException) {
+            ""
+        }
+    }
+
+    fun addOneHourWithCurrentTime() : String
+    {
+        return try {
+            val calendar = Calendar.getInstance()
+            calendar.add(Calendar.HOUR, 1)
+            val currentTime = SimpleDateFormat("HH:mm",Locale.getDefault()).format(calendar.time)
+            currentTime
+        }catch (e : ParseException) {
+            "12:00"
+        }
+    }
 }

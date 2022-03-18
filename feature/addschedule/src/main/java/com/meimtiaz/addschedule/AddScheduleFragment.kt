@@ -1,9 +1,13 @@
 package com.meimtiaz.addschedule
 
 import android.os.Bundle
+import android.widget.TextView
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.timepicker.MaterialTimePicker
+import com.google.android.material.timepicker.TimeFormat
 import com.meimtiaz.addschedule.databinding.FragmentAddScheduleBinding
 import com.meimtiaz.common.base.BaseFragment
+import com.meimtiaz.common.dateparser.DateTimeParser
 import com.meimtiaz.common.extfun.IntentKey
 import com.meimtiaz.common.extfun.clickWithDebounce
 import com.meimtiaz.common.extfun.navigationBackStackResultLiveData
@@ -33,6 +37,15 @@ class AddScheduleFragment:BaseFragment<FragmentAddScheduleBinding>() {
                 AddScheduleFragmentDirections.actionAddScheduleFragmentToCalenderDialog(binding.scheduleDateTv.text.toString()))
         }
 
+
+        /**
+         * ...choose time from time picker dialog
+         * ...pass selected time if already selected
+         */
+        binding.scheduleTimeTv.clickWithDebounce {
+            showTimePicker(binding.scheduleTimeTv)
+        }
+
         /**
          * ...observe selected schedule date
          * ...update ui on changed  schedule date
@@ -41,4 +54,29 @@ class AddScheduleFragment:BaseFragment<FragmentAddScheduleBinding>() {
             binding.scheduleDateTv.text = it
         }
     }
+
+    /** this method will show time picker dialog and pick selected time
+     *  @param textView required for check previous selected time and show selected time in textView. **/
+    private fun showTimePicker(textView: TextView){
+        val picker = MaterialTimePicker.Builder().apply {
+            if (textView.text.isNotEmpty()) {
+                val previousSelectedTime = DateTimeParser.convert12HourFormatTo24HourFormat(textView.text.toString()).split(":")
+                this.setHour(previousSelectedTime[0].toInt())
+                this.setMinute(previousSelectedTime[1].toInt())
+            }else{
+                val currentTime = DateTimeParser.addOneHourWithCurrentTime().split(":")
+                this.setHour(currentTime[0].toInt())
+                this.setMinute(currentTime[1].toInt())
+            }
+        }.setTimeFormat(TimeFormat.CLOCK_12H)
+            .setTitleText(getString(com.meimtiaz.assets.R.string.caption_select_time))
+            .build()
+
+        picker.show(childFragmentManager, "AddScheduleFragment")
+
+        picker.addOnPositiveButtonClickListener {
+            textView.text = DateTimeParser.convert24HourFormatTo12HourFormat("${picker.hour}:${picker.minute}")
+        }
+    }
+
 }
