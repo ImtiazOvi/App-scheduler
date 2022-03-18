@@ -13,4 +13,109 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <com.meimtiaz.assets.CustomSemiBoldTV
+        android:id="@+id/installedAppNameTv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/m16"
+        android:layout_marginTop="@dimen/m16"
+        android:layout_marginEnd="@dimen/m16"
+        android:text="@string/caption_installed_app_name"
+        android:textColor="@color/black"
+        android:textSize="@dimen/subtitle_1_regular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolBarInc" />
+
+    <com.meimtiaz.assets.CustomET
+        android:id="@+id/appSearchEt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/m8"
+        android:background="@null"
+        android:hint="@string/hint_search_app_name"
+        android:maxLines="1"
+        android:padding="@dimen/p4"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray"
+        android:textSize="@dimen/body_2_medium"
+        app:layout_constraintEnd_toEndOf="@+id/installedAppNameTv"
+        app:layout_constraintStart_toStartOf="@+id/installedAppNameTv"
+        app:layout_constraintTop_toBottomOf="@+id/installedAppNameTv" />
+
+    <View
+        android:id="@+id/appSearchEtBottomLine"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/gray_light"
+        app:layout_constraintEnd_toEndOf="@+id/appSearchEt"
+        app:layout_constraintStart_toStartOf="@+id/appSearchEt"
+        app:layout_constraintTop_toBottomOf="@+id/appSearchEt" />
+
+    <ImageView
+        android:id="@+id/clearAppSearchEtTextIv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/image_content_description"
+        android:src="@drawable/ic_close"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/appSearchEt"
+        app:layout_constraintEnd_toEndOf="@+id/appSearchEt"
+        app:layout_constraintTop_toTopOf="@+id/appSearchEt" />
+
+    <com.meimtiaz.assets.CustomSemiBoldTV
+        android:id="@+id/scheduleDateTv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/m16"
+        android:drawableStart="@drawable/ic_date"
+        android:drawableEnd="@drawable/ic_arrow_down"
+        android:drawablePadding="@dimen/p8"
+        android:gravity="center_vertical"
+        android:hint="@string/caption_select_date"
+        android:paddingVertical="@dimen/p4"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="@dimen/subtitle_1_regular"
+        app:layout_constraintEnd_toEndOf="@+id/appSearchEt"
+        app:layout_constraintStart_toStartOf="@+id/appSearchEt"
+        app:layout_constraintTop_toBottomOf="@+id/appSearchEtBottomLine" />
+
+    <com.meimtiaz.assets.CustomSemiBoldTV
+        android:id="@+id/scheduleTimeTv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/m16"
+        android:drawableStart="@drawable/ic_time"
+        android:drawableEnd="@drawable/ic_arrow_down"
+        android:drawablePadding="@dimen/p8"
+        android:gravity="center_vertical"
+        android:hint="@string/caption_select_time"
+        android:paddingVertical="@dimen/p4"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="@dimen/subtitle_1_regular"
+        app:layout_constraintEnd_toEndOf="@+id/appSearchEt"
+        app:layout_constraintStart_toStartOf="@+id/appSearchEt"
+        app:layout_constraintTop_toBottomOf="@+id/scheduleDateTv" />
+
+
+    <com.meimtiaz.assets.CustomTV
+        android:id="@+id/doneBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/m16"
+        android:layout_marginEnd="@dimen/m16"
+        android:layout_marginBottom="@dimen/m16"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:paddingTop="@dimen/m16"
+        android:paddingBottom="@dimen/m16"
+        android:text="@string/button_done"
+        android:textColor="@color/white"
+        android:textSize="@dimen/button_font"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

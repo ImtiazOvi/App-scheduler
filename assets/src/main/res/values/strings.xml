@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">App Scheduler</string>
-    <string name="title_home">Home</string>
     <string name="image_content_description">image_content_description</string>
     <string name="message_no_schedule_yet">No schedule yet</string>
+
     <string name="button_cancel">Cancel</string>
     <string name="button_edit">Edit</string>
-    <string name="caption_app_name">App Name:</string>
-    <string name="caption_start_at">Start at:</string>
+    <string name="button_done">Done</string>
+
+    <string name="title_home">Home</string>
     <string name="title_add_schedule">Add Schedule</string>
     <string name="title_schedule">Schedule</string>
+
+    <string name="caption_app_name">App Name:</string>
+    <string name="caption_start_at">Start at:</string>
+    <string name="caption_installed_app_name">Installed App name</string>
+    <string name="caption_select_date">Select Date</string>
+    <string name="caption_select_time">Select Time</string>
+
+    <string name="hint_search_app_name">Search app name</string>
+
 </resources>

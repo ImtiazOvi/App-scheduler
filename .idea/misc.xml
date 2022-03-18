@@ -11,6 +11,7 @@
         <entry key="assets/src/main/res/drawable/ic_arrow_back_white.xml" value="0.1485" />
         <entry key="common/src/main/res/layout/include_common_toolbar.xml" value="0.335" />
         <entry key="common/src/main/res/layout/layout_common_toolbar.xml" value="0.125" />
+        <entry key="feature/addschedule/src/main/res/layout/fragment_add_schedule.xml" value="0.25" />
         <entry key="feature/home/src/main/res/layout/fragment_home.xml" value="0.25" />
       </map>
     </option>
