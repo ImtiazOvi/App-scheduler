@@ -19,6 +19,8 @@
             <option value="$PROJECT_DIR$/feature/home" />
             <option value="$PROJECT_DIR$/library" />
             <option value="$PROJECT_DIR$/library/sharedpreference" />
+            <option value="$PROJECT_DIR$/model" />
+            <option value="$PROJECT_DIR$/model/entity" />
             <option value="$PROJECT_DIR$/navigation" />
           </set>
         </option>
