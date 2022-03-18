@@ -4,7 +4,9 @@ import android.os.Bundle
 import androidx.navigation.fragment.findNavController
 import com.meimtiaz.addschedule.databinding.FragmentAddScheduleBinding
 import com.meimtiaz.common.base.BaseFragment
+import com.meimtiaz.common.extfun.IntentKey
 import com.meimtiaz.common.extfun.clickWithDebounce
+import com.meimtiaz.common.extfun.navigationBackStackResultLiveData
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,6 +22,23 @@ class AddScheduleFragment:BaseFragment<FragmentAddScheduleBinding>() {
          *  after click pop back stack **/
         binding.toolBarInc.toolbarBackIV.clickWithDebounce {
             findNavController().popBackStack()
+        }
+
+        /**
+         * ...choose date from date picker fragment
+         * ...pass selected date if already selected
+         */
+        binding.scheduleDateTv.clickWithDebounce {
+            findNavController().navigate(
+                AddScheduleFragmentDirections.actionAddScheduleFragmentToCalenderDialog(binding.scheduleDateTv.text.toString()))
+        }
+
+        /**
+         * ...observe selected schedule date
+         * ...update ui on changed  schedule date
+         */
+        navigationBackStackResultLiveData<String>(IntentKey.selectedDate)?.observe(viewLifecycleOwner) {
+            binding.scheduleDateTv.text = it
         }
     }
 }

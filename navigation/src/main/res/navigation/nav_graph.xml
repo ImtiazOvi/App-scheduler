@@ -16,6 +16,20 @@
     <fragment
         android:id="@+id/addScheduleFragment"
         android:name="com.meimtiaz.addschedule.AddScheduleFragment"
-        android:label="AddScheduleFragment"/>
+        android:label="AddScheduleFragment">
+        <action
+            android:id="@+id/action_addScheduleFragment_to_calenderDialog"
+            app:destination="@id/calenderDialog" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/calenderDialog"
+        android:name="com.meimtiaz.addschedule.CalenderDialog"
+        android:label="CalenderDialog">
+        <argument
+            android:name="selectedDate"
+            android:defaultValue=""
+            app:argType="string" />
+    </dialog>
 
 </navigation>

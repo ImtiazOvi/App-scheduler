@@ -20,18 +20,19 @@ object DateTimeParser {
     fun convertDateFormatToMilliSeconds(dateFormat: String,dateTime:String): Long =
         SimpleDateFormat(dateFormat,Locale.US).parse(dateTime)?.time?:0L
 
-    fun convertReadableDateTime(givenDateTime:String?,dateFormat:String,outputFormat:String):String{
+    fun convertHumanFormatDate(givenDateTime:String?,format:String):String{
         var formatDate = ""
-        var sf = SimpleDateFormat(dateFormat, Locale.US)
+        var dateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.US)
         try {
             givenDateTime?.let {
-                val parseDate = sf.parse(it)
-                sf = SimpleDateFormat(outputFormat, Locale.US)
-                formatDate = sf.format(parseDate!!)
+                val parseDate = dateFormat.parse(it)
+                dateFormat = SimpleDateFormat(format, Locale.US)
+                formatDate = dateFormat.format(parseDate!!)
             }
         } catch (e: ParseException) {
             e.printStackTrace()
         }
+
         return formatDate
     }
 

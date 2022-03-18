@@ -10,6 +10,9 @@ dependencies {
     implementation AppDep.material
     implementation AppDep.liveData
     implementation AppDep.viewModel
+    implementation AppDep.navigationUi
+    implementation AppDep.navigationFragment
     implementation project(ModulesDep.assets)
+
 
 }
