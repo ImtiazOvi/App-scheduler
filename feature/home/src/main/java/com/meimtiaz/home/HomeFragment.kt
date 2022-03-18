@@ -14,7 +14,7 @@ class HomeFragment: BaseFragment<FragmentHomeBinding>() {
 
     override fun initializeView(savedInstanceState: Bundle?) {
         /** @toolBarInc common toolbar title text changed **/
-        binding.toolBarInc.toolbarTitleTv.text = getString(com.meimtiaz.assets.R.string.title_home)
+        binding.toolBarInc.toolbarTitleTv.text = getString(com.meimtiaz.assets.R.string.title_add_schedule)
 
         /** @toolBarInc common toolbar back button visibility gone **/
         binding.toolBarInc.toolbarBackIV.isVisible = false
@@ -23,6 +23,12 @@ class HomeFragment: BaseFragment<FragmentHomeBinding>() {
          *  after click pop back stack **/
         binding.toolBarInc.toolbarBackIV.clickWithDebounce {
             findNavController().popBackStack()
+        }
+
+        /** @ClickWithDebounce prevent double click at the same time
+         *  after click navigate to add schedule screen **/
+        binding.addScheduleCv.clickWithDebounce {
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToAddScheduleFragment())
         }
     }
 }

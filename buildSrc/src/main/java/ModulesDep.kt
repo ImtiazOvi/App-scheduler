@@ -6,4 +6,5 @@ object ModulesDep {
     const val entity = ":model:entity"
 
     const val home = ":feature:home"
+    const val addSchedule = ":feature:addschedule"
 }

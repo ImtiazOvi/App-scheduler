@@ -8,4 +8,6 @@
     <string name="button_edit">Edit</string>
     <string name="caption_app_name">App Name:</string>
     <string name="caption_start_at">Start at:</string>
+    <string name="title_add_schedule">Add Schedule</string>
+    <string name="title_schedule">Schedule</string>
 </resources>

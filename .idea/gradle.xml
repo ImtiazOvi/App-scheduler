@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/common" />
             <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/feature" />
+            <option value="$PROJECT_DIR$/feature/addschedule" />
             <option value="$PROJECT_DIR$/feature/home" />
             <option value="$PROJECT_DIR$/library" />
             <option value="$PROJECT_DIR$/library/sharedpreference" />
