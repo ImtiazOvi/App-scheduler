@@ -5,7 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.meimtiaz.domain.AppScheduleEntity
+import com.meimtiaz.domain.localentity.AppScheduleEntity
 
 @Dao
 interface AppScheduleDao {

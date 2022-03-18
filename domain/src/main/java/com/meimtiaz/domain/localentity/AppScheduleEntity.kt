@@ -1,4 +1,4 @@
-package com.meimtiaz.domain
+package com.meimtiaz.domain.localentity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
