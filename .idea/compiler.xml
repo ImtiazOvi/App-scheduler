@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="11" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="App_scheduler.app" target="11" />
+      <module name="App_scheduler.assets" target="11" />
+      <module name="App_scheduler.buildSrc" target="11" />
+      <module name="App_scheduler.common" target="11" />
+      <module name="App_scheduler.domain" target="11" />
+      <module name="App_scheduler.feature.home" target="11" />
+      <module name="App_scheduler.library.sharedpreference" target="11" />
+      <module name="App_scheduler.navigation" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>

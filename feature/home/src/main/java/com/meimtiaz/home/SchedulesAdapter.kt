@@ -4,14 +4,15 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import com.meimtiaz.common.adapter.DataBoundListAdapter
+import com.meimtiaz.entity.AppInfoEntity
 import com.meimtiaz.home.databinding.ItemScheduleBinding
 
-class SchedulesAdapter() : DataBoundListAdapter<String, ItemScheduleBinding>(
-    diffCallback = object : DiffUtil.ItemCallback<String>(){
-        override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
+class SchedulesAdapter() : DataBoundListAdapter<AppInfoEntity, ItemScheduleBinding>(
+    diffCallback = object : DiffUtil.ItemCallback<AppInfoEntity>(){
+        override fun areItemsTheSame(oldItem: AppInfoEntity, newItem: AppInfoEntity): Boolean {
             return oldItem == newItem
         }
-        override fun areContentsTheSame(oldItem: String, newItem: String): Boolean {
+        override fun areContentsTheSame(oldItem: AppInfoEntity, newItem: AppInfoEntity): Boolean {
             return oldItem == newItem
         }
 
@@ -19,7 +20,7 @@ class SchedulesAdapter() : DataBoundListAdapter<String, ItemScheduleBinding>(
 ) {
     override fun createBinding(parent: ViewGroup): ItemScheduleBinding = ItemScheduleBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
-    override fun bind(binding: ItemScheduleBinding, item: String, position: Int) {
+    override fun bind(binding: ItemScheduleBinding, item: AppInfoEntity, position: Int) {
 
     }
 }

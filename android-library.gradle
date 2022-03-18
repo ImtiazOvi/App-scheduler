@@ -46,6 +46,7 @@ dependencies {
     kapt AppDep.hiltCompiler
     implementation AppDep.timber
 
+    implementation project(ModulesDep.domain)
     implementation project(ModulesDep.common)
     implementation project(ModulesDep.assets)
 
