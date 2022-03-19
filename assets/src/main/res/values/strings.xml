@@ -9,6 +9,7 @@
 
     <string name="title_home">Home</string>
     <string name="title_add_schedule">Add Schedule</string>
+    <string name="title_edit_schedule">Edit Schedule</string>
     <string name="title_schedule">Schedule</string>
     <string name="title_search_app">Search App</string>
 

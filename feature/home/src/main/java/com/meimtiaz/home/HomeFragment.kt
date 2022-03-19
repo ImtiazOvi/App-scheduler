@@ -38,7 +38,9 @@ class HomeFragment: BaseFragment<FragmentHomeBinding>() {
              scheduleItemCancelCallBack = { appScheduleEntity ->
                  showCancelScheduleDialog(appScheduleEntity.id)
              },
-             scheduleItemEditCallBack  = { appScheduleEntity -> }
+             scheduleItemEditCallBack  = { appScheduleEntity ->
+                 findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToEditScheduleFragment(appScheduleEntity))
+             }
         )
         requireActivity().setUpVerticalRecyclerView(binding.scheduleRv, adapter)
         getAllSchedule()

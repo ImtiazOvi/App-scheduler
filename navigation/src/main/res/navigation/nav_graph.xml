@@ -11,6 +11,9 @@
         <action
             android:id="@+id/action_homeFragment_to_addScheduleFragment"
             app:destination="@id/addScheduleFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_editScheduleFragment"
+            app:destination="@id/editScheduleFragment" />
     </fragment>
 
     <fragment
@@ -23,6 +26,19 @@
         <action
             android:id="@+id/action_addScheduleFragment_to_searchAppFragment"
             app:destination="@id/searchAppFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/editScheduleFragment"
+        android:name="com.meimtiaz.editschedule.EditScheduleFragment"
+        android:label="EditScheduleFragment" >
+        <argument
+            android:name="editAppScheduleIntentEntity"
+            app:argType="com.meimtiaz.entity.EditAppScheduleIntentEntity"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_editScheduleFragment_to_editScheduleCalenderDialog"
+            app:destination="@id/editScheduleCalenderDialog" />
     </fragment>
 
     <fragment
@@ -39,6 +55,16 @@
         android:id="@+id/calenderDialog"
         android:name="com.meimtiaz.addschedule.CalenderDialog"
         android:label="CalenderDialog">
+        <argument
+            android:name="selectedDate"
+            android:defaultValue=""
+            app:argType="string" />
+    </dialog>
+
+    <dialog
+        android:id="@+id/editScheduleCalenderDialog"
+        android:name="com.meimtiaz.editschedule.EditScheduleCalenderDialog"
+        android:label="EditScheduleCalenderDialog">
         <argument
             android:name="selectedDate"
             android:defaultValue=""

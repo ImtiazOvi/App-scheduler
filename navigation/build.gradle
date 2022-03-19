@@ -8,4 +8,5 @@ apply from: "$rootDir/android-config-dependencies.gradle"
 dependencies {
     implementation AppDep.navigationUi
     implementation AppDep.navigationFragment
+    implementation project(ModulesDep.entity)
 }

@@ -7,13 +7,13 @@ import androidx.recyclerview.widget.DiffUtil
 import com.meimtiaz.common.adapter.DataBoundListAdapter
 import com.meimtiaz.common.extfun.clickWithDebounce
 import com.meimtiaz.domain.localentity.AppScheduleEntity
-import com.meimtiaz.entity.AppInfoEntity
+import com.meimtiaz.entity.EditAppScheduleIntentEntity
 import com.meimtiaz.home.databinding.ItemScheduleBinding
 
 class SchedulesAdapter(
     private val application: Context,
     private val scheduleItemCancelCallBack:((appScheduleEntity: AppScheduleEntity)->Unit)?,
-    private val scheduleItemEditCallBack:((appScheduleEntity: AppScheduleEntity)->Unit)?
+    private val scheduleItemEditCallBack:((appScheduleEntity: EditAppScheduleIntentEntity)->Unit)?
 ) : DataBoundListAdapter<AppScheduleEntity, ItemScheduleBinding>(
     diffCallback = object : DiffUtil.ItemCallback<AppScheduleEntity>(){
         override fun areItemsTheSame(oldItem: AppScheduleEntity, newItem: AppScheduleEntity): Boolean {
@@ -36,6 +36,17 @@ class SchedulesAdapter(
 
         binding.cancelTv.clickWithDebounce {
             scheduleItemCancelCallBack?.invoke(item)
+        }
+
+        binding.editTv.clickWithDebounce {
+
+            scheduleItemEditCallBack?.invoke(EditAppScheduleIntentEntity(
+                id = item.id,
+                appName = item.appName,
+                appIcon = item.appIcon,
+                packageName = item.packageName,
+                startAt  = item.startAt
+            ))
         }
     }
 
