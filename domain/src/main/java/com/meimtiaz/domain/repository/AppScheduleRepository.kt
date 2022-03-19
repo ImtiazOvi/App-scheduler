@@ -7,4 +7,5 @@ import com.meimtiaz.domain.usecase.InsertAppScheduleUseCase
 interface AppScheduleRepository {
     suspend fun insertAppSchedule(params: InsertAppScheduleUseCase.Params)
     fun getAllAppSchedule(): LiveData<List<AppScheduleEntity>>
+    suspend fun deleteAppScheduleById(appScheduleId:Int)
 }

@@ -19,5 +19,5 @@ interface AppScheduleDao {
     suspend fun deleteAllAppSchedules()
 
     @Query("DELETE FROM appschedules WHERE id =:id")
-    suspend fun deleteSingleAppSchedule(id: Int)
+    suspend fun deleteAppScheduleById(id: Int)
 }

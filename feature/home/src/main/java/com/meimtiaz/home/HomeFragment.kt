@@ -8,6 +8,7 @@ import com.meimtiaz.common.base.BaseFragment
 import com.meimtiaz.common.extfun.clickWithDebounce
 import com.meimtiaz.common.extfun.observe
 import com.meimtiaz.common.extfun.setUpVerticalRecyclerView
+import com.meimtiaz.common.extfun.showAlertDialog
 import com.meimtiaz.home.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -34,7 +35,9 @@ class HomeFragment: BaseFragment<FragmentHomeBinding>() {
 
         adapter = SchedulesAdapter(
             application = requireContext(),
-             scheduleItemCancelCallBack = { appScheduleEntity -> },
+             scheduleItemCancelCallBack = { appScheduleEntity ->
+                 showCancelScheduleDialog(appScheduleEntity.id)
+             },
              scheduleItemEditCallBack  = { appScheduleEntity -> }
         )
         requireActivity().setUpVerticalRecyclerView(binding.scheduleRv, adapter)
@@ -50,4 +53,21 @@ class HomeFragment: BaseFragment<FragmentHomeBinding>() {
 
         }
     }
+
+    private fun showCancelScheduleDialog(scheduleDatabaseId:Int) {
+        requireActivity().showAlertDialog(
+            getString(
+                com.meimtiaz.assets.R.string.message_yes
+            ),
+            getString(
+                com.meimtiaz.assets.R.string.message_no
+            ),
+            null, getString(
+                com.meimtiaz.assets.R.string.message_do_want_to_cancel_schedule
+            ), true, {
+                viewModel.deleteAppScheduleById(scheduleDatabaseId)
+                showMessage(getString(com.meimtiaz.assets.R.string.message_schedule_deleted_successfully))
+            }, {})
+    }
+
 }

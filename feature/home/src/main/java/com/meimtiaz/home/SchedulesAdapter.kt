@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import com.meimtiaz.common.adapter.DataBoundListAdapter
+import com.meimtiaz.common.extfun.clickWithDebounce
 import com.meimtiaz.domain.localentity.AppScheduleEntity
 import com.meimtiaz.entity.AppInfoEntity
 import com.meimtiaz.home.databinding.ItemScheduleBinding
@@ -32,6 +33,10 @@ class SchedulesAdapter(
 
         if (item.startAt!!.isNotEmpty())
             binding.startAtValueTv.text = item.startAt
+
+        binding.cancelTv.clickWithDebounce {
+            scheduleItemCancelCallBack?.invoke(item)
+        }
     }
 
 }

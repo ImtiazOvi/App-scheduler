@@ -15,4 +15,8 @@ class AppScheduleRepoImpl @Inject constructor(private val appScheduleDao : AppSc
     override fun getAllAppSchedule(): LiveData<List<AppScheduleEntity>> {
         return appScheduleDao.getAllAppSchedules()
     }
+
+    override suspend fun deleteAppScheduleById(appScheduleId: Int) {
+        appScheduleDao.deleteAppScheduleById(appScheduleId)
+    }
 }

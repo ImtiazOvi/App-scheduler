@@ -27,6 +27,10 @@
     <string name="message_please_give_time_for_schedule_date">Please give time for schedule date</string>
     <string name="message_successful">SuccessFul</string>
     <string name="message_failed">Failed</string>
+    <string name="message_yes">Yes</string>
+    <string name="message_no">No</string>
+    <string name="message_do_want_to_cancel_schedule">Do you want to cancel the schedule?</string>
+    <string name="message_schedule_deleted_successfully">Schedule deleted successfully</string>
 
 
 

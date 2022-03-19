@@ -1,27 +1,29 @@
 package com.meimtiaz.common.extfun
 
-import android.app.Activity
-import android.app.Dialog
 import android.content.Context
-import android.view.LayoutInflater
-import android.view.View
-import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
-import androidx.fragment.app.Fragment
 
-fun Activity.showViewAlertDialog(view: View, title: String?, cancelable: Boolean): AlertDialog =
+fun Context.showAlertDialog(
+    positiveBtn: String,
+    negativeBtn: String,
+    title: String?,
+    message: String?,
+    cancelable: Boolean,
+    positiveBtnCallback:(()->Unit)?,
+    negativeBtnCallback:(()->Unit)?,
+) {
     AlertDialog.Builder(this)
-        .setView(view)
         .setCancelable(cancelable)
         .setTitle(title)
-        .show()
-
-fun Fragment.showViewAlertDialog(view: View, title: String?, cancelable: Boolean): AlertDialog =
-    AlertDialog.Builder(requireContext())
-        .setView(view)
-        .setCancelable(cancelable)
-        .setTitle(title)
-        .show()
+        .setMessage(message)
+        .setPositiveButton(positiveBtn) { dialog, _ ->
+            dialog.dismiss()
+            positiveBtnCallback?.invoke()
+        }.setNegativeButton(negativeBtn) { dialog, _ ->
+            dialog.dismiss()
+            negativeBtnCallback?.invoke()
+        }.show()
+}
 
 
 
