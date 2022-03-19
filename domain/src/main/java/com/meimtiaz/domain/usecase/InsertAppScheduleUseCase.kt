@@ -7,11 +7,10 @@ import javax.inject.Inject
 
 class InsertAppScheduleUseCase @Inject constructor(
     private val repository: AppScheduleRepository
-) : CoroutineUseCase<AppScheduleEntity, Unit> {
-
+) : CoroutineUseCase<InsertAppScheduleUseCase.Params, Unit> {
     data class Params(val appScheduleEntity:AppScheduleEntity)
 
-    override suspend fun execute(params: AppScheduleEntity?){
+    override suspend fun execute(params: Params?) {
         params?.let {
             repository.insertAppSchedule(params)
         }

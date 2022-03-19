@@ -28,14 +28,14 @@
         app:layout_constraintTop_toBottomOf="@+id/toolBarInc" />
 
     <com.meimtiaz.assets.CustomTV
-        android:id="@+id/appSearchEt"
+        android:id="@+id/appSearchTv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/m8"
         android:background="@null"
         android:hint="@string/hint_search_app_name"
         android:maxLines="1"
-        android:padding="@dimen/p4"
+        android:padding="@dimen/p8"
         android:textColor="@color/black"
         android:textColorHint="@color/gray"
         android:textSize="@dimen/body_2_medium"
@@ -48,9 +48,9 @@
         android:layout_width="0dp"
         android:layout_height="2dp"
         android:background="@color/gray_light"
-        app:layout_constraintEnd_toEndOf="@+id/appSearchEt"
-        app:layout_constraintStart_toStartOf="@+id/appSearchEt"
-        app:layout_constraintTop_toBottomOf="@+id/appSearchEt" />
+        app:layout_constraintEnd_toEndOf="@+id/appSearchTv"
+        app:layout_constraintStart_toStartOf="@+id/appSearchTv"
+        app:layout_constraintTop_toBottomOf="@+id/appSearchTv" />
 
     <com.meimtiaz.assets.CustomSemiBoldTV
         android:id="@+id/scheduleDateTv"
@@ -66,8 +66,8 @@
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textSize="@dimen/subtitle_1_regular"
-        app:layout_constraintEnd_toEndOf="@+id/appSearchEt"
-        app:layout_constraintStart_toStartOf="@+id/appSearchEt"
+        app:layout_constraintEnd_toEndOf="@+id/appSearchTv"
+        app:layout_constraintStart_toStartOf="@+id/appSearchTv"
         app:layout_constraintTop_toBottomOf="@+id/appSearchEtBottomLine" />
 
     <com.meimtiaz.assets.CustomSemiBoldTV
@@ -84,8 +84,8 @@
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textSize="@dimen/subtitle_1_regular"
-        app:layout_constraintEnd_toEndOf="@+id/appSearchEt"
-        app:layout_constraintStart_toStartOf="@+id/appSearchEt"
+        app:layout_constraintEnd_toEndOf="@+id/appSearchTv"
+        app:layout_constraintStart_toStartOf="@+id/appSearchTv"
         app:layout_constraintTop_toBottomOf="@+id/scheduleDateTv" />
 
 

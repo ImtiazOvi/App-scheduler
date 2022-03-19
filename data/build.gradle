@@ -8,5 +8,4 @@ apply from: "$rootDir/android-core-library.gradle"
 dependencies {
     implementation project(ModulesDep.domain)
     implementation project(ModulesDep.cache)
-    implementation project(ModulesDep.common)
 }

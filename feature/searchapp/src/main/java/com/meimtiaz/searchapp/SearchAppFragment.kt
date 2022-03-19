@@ -1,6 +1,5 @@
 package com.meimtiaz.searchapp
 
-import android.content.Intent
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -8,7 +7,9 @@ import android.widget.EditText
 import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.meimtiaz.common.base.BaseFragment
+import com.meimtiaz.common.extfun.IntentKey
 import com.meimtiaz.common.extfun.clickWithDebounce
 import com.meimtiaz.common.extfun.setUpVerticalRecyclerView
 import com.meimtiaz.common.utils.autoCleared
@@ -22,6 +23,8 @@ class SearchAppFragment:BaseFragment<FragmentSearchAppBinding>(), AppSelectionAd
     override fun viewBindingLayout(): FragmentSearchAppBinding = FragmentSearchAppBinding.inflate(layoutInflater)
 
     private var adapter by autoCleared<AppSelectionAdapter>()
+    private val args by navArgs<SearchAppFragmentArgs>()
+
 
     override fun initializeView(savedInstanceState: Bundle?) {
         /** @toolBarInc common toolbar title text changed **/
@@ -45,8 +48,7 @@ class SearchAppFragment:BaseFragment<FragmentSearchAppBinding>(), AppSelectionAd
         adapter.setInstalledAppList(getUserInstalledApplications())
         requireContext().setUpVerticalRecyclerView(binding.appRv, adapter)
         binding.appSearchEt.afterTextChange()
-
-
+        binding.appSearchEt.setText(args.selectedAppName)
     }
 
 
@@ -96,8 +98,8 @@ class SearchAppFragment:BaseFragment<FragmentSearchAppBinding>(), AppSelectionAd
     }
 
     override fun onLocationItemClick(packageInfo: ApplicationInfo) {
-        val launchIntent: Intent? = requireActivity().packageManager.getLaunchIntentForPackage(packageInfo.packageName)
-        startActivity(launchIntent)
+        findNavController().previousBackStackEntry?.savedStateHandle?.set(IntentKey.selectedAppInfo, packageInfo)
+        findNavController().popBackStack()
     }
 
 

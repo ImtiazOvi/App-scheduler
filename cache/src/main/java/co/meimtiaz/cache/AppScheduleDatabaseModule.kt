@@ -20,8 +20,8 @@ object AppScheduleDatabaseModule {
 
     @Singleton
     @Provides
-    fun provideAppScheduleDao(appScheduleDatabase: AppScheduleDatabase):
-            AppScheduleDao = appScheduleDatabase.appScheduleDao()
+    fun provideAppScheduleDao(appScheduleDatabase: AppScheduleDatabase): AppScheduleDao = appScheduleDatabase.appScheduleDao()
+
 
 
 }

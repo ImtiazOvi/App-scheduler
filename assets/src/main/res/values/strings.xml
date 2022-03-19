@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">App Scheduler</string>
     <string name="image_content_description">image_content_description</string>
-    <string name="message_no_schedule_yet">No schedule yet</string>
 
     <string name="button_cancel">Cancel</string>
     <string name="button_edit">Edit</string>
@@ -21,5 +20,14 @@
 
     <string name="hint_search_app_name">Search app name</string>
     <string name="hint_write_app_name">Write app name(Ex: Map)</string>
+
+    <string name="message_no_schedule_yet">No schedule yet</string>
+    <string name="message_please_give_app_name">Please give app name</string>
+    <string name="message_please_give_schedule_date">Please give a schedule date</string>
+    <string name="message_please_give_time_for_schedule_date">Please give time for schedule date</string>
+    <string name="message_successful">SuccessFul</string>
+    <string name="message_failed">Failed</string>
+
+
 
 </resources>
