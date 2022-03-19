@@ -11,5 +11,6 @@ data class AppScheduleEntity(
     val appName:String? = "",
     val appIcon:String? = "",
     val packageName:String? = "",
+    val startAt:String? = "",
     val created_at:Long = Calendar.getInstance().timeInMillis
 )

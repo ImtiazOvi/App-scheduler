@@ -1,18 +1,24 @@
 package com.meimtiaz.home
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import com.meimtiaz.common.adapter.DataBoundListAdapter
+import com.meimtiaz.domain.localentity.AppScheduleEntity
 import com.meimtiaz.entity.AppInfoEntity
 import com.meimtiaz.home.databinding.ItemScheduleBinding
 
-class SchedulesAdapter() : DataBoundListAdapter<AppInfoEntity, ItemScheduleBinding>(
-    diffCallback = object : DiffUtil.ItemCallback<AppInfoEntity>(){
-        override fun areItemsTheSame(oldItem: AppInfoEntity, newItem: AppInfoEntity): Boolean {
+class SchedulesAdapter(
+    private val application: Context,
+    private val scheduleItemCancelCallBack:((appScheduleEntity: AppScheduleEntity)->Unit)?,
+    private val scheduleItemEditCallBack:((appScheduleEntity: AppScheduleEntity)->Unit)?
+) : DataBoundListAdapter<AppScheduleEntity, ItemScheduleBinding>(
+    diffCallback = object : DiffUtil.ItemCallback<AppScheduleEntity>(){
+        override fun areItemsTheSame(oldItem: AppScheduleEntity, newItem: AppScheduleEntity): Boolean {
             return oldItem == newItem
         }
-        override fun areContentsTheSame(oldItem: AppInfoEntity, newItem: AppInfoEntity): Boolean {
+        override fun areContentsTheSame(oldItem: AppScheduleEntity, newItem: AppScheduleEntity): Boolean {
             return oldItem == newItem
         }
 
@@ -20,7 +26,12 @@ class SchedulesAdapter() : DataBoundListAdapter<AppInfoEntity, ItemScheduleBindi
 ) {
     override fun createBinding(parent: ViewGroup): ItemScheduleBinding = ItemScheduleBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
-    override fun bind(binding: ItemScheduleBinding, item: AppInfoEntity, position: Int) {
+    override fun bind(binding: ItemScheduleBinding, item: AppScheduleEntity, position: Int) {
+        if (item.appName!!.isNotEmpty())
+            binding.appNameValueTv.text = item.appName
 
+        if (item.startAt!!.isNotEmpty())
+            binding.startAtValueTv.text = item.startAt
     }
+
 }

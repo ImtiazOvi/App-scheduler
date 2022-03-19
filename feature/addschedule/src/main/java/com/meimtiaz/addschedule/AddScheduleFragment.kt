@@ -2,6 +2,7 @@ package com.meimtiaz.addschedule
 
 import android.content.pm.ApplicationInfo
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -51,7 +52,6 @@ class AddScheduleFragment:BaseFragment<FragmentAddScheduleBinding>(){
         }
 
     }
-
 
     private fun clickListeners(){
         /** @ClickWithDebounce prevent double click at the same time
@@ -108,7 +108,6 @@ class AddScheduleFragment:BaseFragment<FragmentAddScheduleBinding>(){
 
     }
 
-
     /** storing app schedule data in local database **/
     private fun insertAppSchedule(){
         viewModel.insertAddSchedule(
@@ -116,14 +115,14 @@ class AddScheduleFragment:BaseFragment<FragmentAddScheduleBinding>(){
             AppScheduleEntity(
                 appName = binding.appSearchTv.getTextFromTv(),
                 appIcon = requireContext().packageManager.getApplicationIcon(selectedPackageName).toString(),
-                packageName = selectedPackageName
+                packageName = selectedPackageName,
+                startAt = binding.scheduleDateTv.getTextFromTv() +" "+ binding.scheduleTimeTv.getTextFromTv()
             )
         )
         )
-        // test purpose checking local data base data
-        if (viewModel.getAllAppSchedule().toString().isNotEmpty())
-            showMessage(getString(com.meimtiaz.assets.R.string.message_successful))
-        else showMessage(getString(com.meimtiaz.assets.R.string.message_failed))
+
+        findNavController().popBackStack()
+        showMessage(getString(com.meimtiaz.assets.R.string.message_successful))
     }
 
     /** this method will show time picker dialog and pick selected time
