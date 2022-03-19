@@ -116,7 +116,9 @@ class AddScheduleFragment:BaseFragment<FragmentAddScheduleBinding>(){
                 appName = binding.appSearchTv.getTextFromTv(),
                 appIcon = requireContext().packageManager.getApplicationIcon(selectedPackageName).toString(),
                 packageName = selectedPackageName,
-                startAt = binding.scheduleDateTv.getTextFromTv() +" "+ binding.scheduleTimeTv.getTextFromTv()
+                startAt = binding.scheduleDateTv.getTextFromTv() +" "+ binding.scheduleTimeTv.getTextFromTv(),
+                selectedDate = binding.scheduleDateTv.getTextFromTv(),
+                selectedTime = binding.scheduleTimeTv.getTextFromTv()
             )
         )
         )

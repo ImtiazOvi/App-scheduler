@@ -7,5 +7,6 @@ data class EditAppScheduleIntentEntity(
     val appName: String? = "",
     val appIcon: String? = "",
     val packageName: String? = "",
-    val startAt: String? = "",
+    val selectedDate:String? = "",
+    val selectedTime:String? = "",
 ):Serializable

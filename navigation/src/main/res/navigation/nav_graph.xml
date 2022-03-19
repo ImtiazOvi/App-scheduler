@@ -39,6 +39,9 @@
         <action
             android:id="@+id/action_editScheduleFragment_to_editScheduleCalenderDialog"
             app:destination="@id/editScheduleCalenderDialog" />
+        <action
+            android:id="@+id/action_editScheduleFragment_to_searchAppFragment"
+            app:destination="@id/searchAppFragment" />
     </fragment>
 
     <fragment

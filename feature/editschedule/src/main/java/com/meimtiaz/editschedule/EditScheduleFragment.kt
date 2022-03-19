@@ -3,6 +3,7 @@ package com.meimtiaz.editschedule
 import android.os.Bundle
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 import com.meimtiaz.addschedule.AddScheduleFragmentDirections
@@ -17,13 +18,21 @@ import dagger.hilt.android.AndroidEntryPoint
 class EditScheduleFragment:BaseFragment<FragmentEditScheduleBinding>() {
     override fun viewBindingLayout(): FragmentEditScheduleBinding = FragmentEditScheduleBinding.inflate(layoutInflater)
 
+    private val args by navArgs<EditScheduleFragmentArgs>()
+
     override fun initializeView(savedInstanceState: Bundle?) {
         /** @toolBarInc common toolbar title text changed **/
         binding.toolBarInc.toolbarTitleTv.text = getString(com.meimtiaz.assets.R.string.title_edit_schedule)
 
+        setArgumentsData()
         clickListeners()
     }
 
+    private fun setArgumentsData(){
+        binding.appSearchTv.text = args.editAppScheduleIntentEntity?.appName
+        binding.scheduleDateTv.text = args.editAppScheduleIntentEntity?.selectedDate
+        binding.scheduleTimeTv.text = args.editAppScheduleIntentEntity?.selectedTime
+    }
     private fun clickListeners(){
         /** @ClickWithDebounce prevent double click at the same time
          *  after click pop back stack **/
@@ -52,7 +61,7 @@ class EditScheduleFragment:BaseFragment<FragmentEditScheduleBinding>() {
          * ...tap to navigate app search screen
          */
         binding.appSearchTv.clickWithDebounce {
-            findNavController().navigate(AddScheduleFragmentDirections.actionAddScheduleFragmentToSearchAppFragment(binding.appSearchTv.getTextFromTv()))
+            findNavController().navigate(EditScheduleFragmentDirections.actionEditScheduleFragmentToSearchAppFragment(binding.appSearchTv.getTextFromTv()))
         }
 
 

@@ -39,13 +39,13 @@ class SchedulesAdapter(
         }
 
         binding.editTv.clickWithDebounce {
-
             scheduleItemEditCallBack?.invoke(EditAppScheduleIntentEntity(
                 id = item.id,
                 appName = item.appName,
                 appIcon = item.appIcon,
                 packageName = item.packageName,
-                startAt  = item.startAt
+                selectedDate  = item.selectedDate,
+                selectedTime  = item.selectedTime
             ))
         }
     }
