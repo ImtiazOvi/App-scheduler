@@ -1,10 +1,7 @@
 package co.meimtiaz.cache.dao
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.meimtiaz.domain.localentity.AppScheduleEntity
 
 @Dao
@@ -20,4 +17,7 @@ interface AppScheduleDao {
 
     @Query("DELETE FROM appschedules WHERE id =:id")
     suspend fun deleteAppScheduleById(id: Int)
+
+    @Update
+    suspend fun updateAppSchedule(appScheduleEntity: AppScheduleEntity)
 }

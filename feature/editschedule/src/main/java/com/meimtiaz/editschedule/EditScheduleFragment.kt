@@ -1,16 +1,22 @@
 package com.meimtiaz.editschedule
 
+import android.content.pm.ApplicationInfo
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
-import com.meimtiaz.addschedule.AddScheduleFragmentDirections
 import com.meimtiaz.common.base.BaseFragment
 import com.meimtiaz.common.dateparser.DateTimeParser
+import com.meimtiaz.common.extfun.IntentKey
 import com.meimtiaz.common.extfun.clickWithDebounce
 import com.meimtiaz.common.extfun.getTextFromTv
+import com.meimtiaz.common.extfun.navigationBackStackResultLiveData
+import com.meimtiaz.domain.localentity.AppScheduleEntity
+import com.meimtiaz.domain.usecase.UpdateAppScheduleUseCase
 import com.meimtiaz.editschedule.databinding.FragmentEditScheduleBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -19,10 +25,34 @@ class EditScheduleFragment:BaseFragment<FragmentEditScheduleBinding>() {
     override fun viewBindingLayout(): FragmentEditScheduleBinding = FragmentEditScheduleBinding.inflate(layoutInflater)
 
     private val args by navArgs<EditScheduleFragmentArgs>()
+    private val viewModel by viewModels<EditScheduleViewModel>()
+    private var selectedAppName:String = ""
+    private var selectedPackageName:String = ""
 
     override fun initializeView(savedInstanceState: Bundle?) {
         /** @toolBarInc common toolbar title text changed **/
         binding.toolBarInc.toolbarTitleTv.text = getString(com.meimtiaz.assets.R.string.title_edit_schedule)
+        selectedPackageName = args.editAppScheduleIntentEntity?.packageName ?: ""
+
+
+        /**
+         * ...observe selected schedule date
+         * ...update ui on changed  schedule date
+         */
+        navigationBackStackResultLiveData<String>(IntentKey.selectedDate)?.observe(viewLifecycleOwner) {
+            binding.scheduleDateTv.text = it
+        }
+
+        /**
+         * ...observe selected app info
+         * ...update ui on changed  app info
+         */
+        navigationBackStackResultLiveData<ApplicationInfo>(IntentKey.selectedAppInfo)?.observe(viewLifecycleOwner) {
+            binding.appSearchTv.text = it.loadLabel(requireContext().packageManager).toString()
+            selectedAppName = it.loadLabel(requireContext().packageManager).toString()
+            selectedPackageName = it.packageName
+        }
+
 
         setArgumentsData()
         clickListeners()
@@ -83,7 +113,7 @@ class EditScheduleFragment:BaseFragment<FragmentEditScheduleBinding>() {
                 showMessage(getString(com.meimtiaz.assets.R.string.message_please_give_time_for_schedule_date))
                 return@clickWithDebounce
             }
-           // insertAppSchedule()
+            updateAppSchedule()
         }
 
     }
@@ -110,5 +140,25 @@ class EditScheduleFragment:BaseFragment<FragmentEditScheduleBinding>() {
         picker.addOnPositiveButtonClickListener {
             textView.text = DateTimeParser.convert24HourFormatTo12HourFormat("${picker.hour}:${picker.minute}")
         }
+    }
+
+    /** update app schedule data in local database **/
+    private fun updateAppSchedule(){
+        viewModel.updateAppSchedule(
+            UpdateAppScheduleUseCase.Params(
+                AppScheduleEntity(
+                    id = args.editAppScheduleIntentEntity?.id!!,
+                    appName = binding.appSearchTv.getTextFromTv(),
+                    appIcon = requireContext().packageManager.getApplicationIcon(selectedPackageName).toString(),
+                    packageName = selectedPackageName,
+                    startAt = binding.scheduleDateTv.getTextFromTv() +" "+ binding.scheduleTimeTv.getTextFromTv(),
+                    selectedDate = binding.scheduleDateTv.getTextFromTv(),
+                    selectedTime = binding.scheduleTimeTv.getTextFromTv()
+                )
+            )
+        )
+
+        findNavController().popBackStack()
+        showMessage(getString(com.meimtiaz.assets.R.string.message_successful))
     }
 }

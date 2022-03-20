@@ -5,6 +5,7 @@ import co.meimtiaz.cache.dao.AppScheduleDao
 import com.meimtiaz.domain.localentity.AppScheduleEntity
 import com.meimtiaz.domain.repository.AppScheduleRepository
 import com.meimtiaz.domain.usecase.InsertAppScheduleUseCase
+import com.meimtiaz.domain.usecase.UpdateAppScheduleUseCase
 import javax.inject.Inject
 
 class AppScheduleRepoImpl @Inject constructor(private val appScheduleDao : AppScheduleDao): AppScheduleRepository {
@@ -18,5 +19,9 @@ class AppScheduleRepoImpl @Inject constructor(private val appScheduleDao : AppSc
 
     override suspend fun deleteAppScheduleById(appScheduleId: Int) {
         appScheduleDao.deleteAppScheduleById(appScheduleId)
+    }
+
+    override suspend fun updateAppSchedule(params: UpdateAppScheduleUseCase.Params) {
+        appScheduleDao.updateAppSchedule(params.appScheduleEntity)
     }
 }
