@@ -13,11 +13,11 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 import com.meimtiaz.common.workmanager.AppStartNotifyWork.Companion.APP_SCHEDULE_PACKAGE_NAME
-import com.meimtiaz.common.workmanager.AppStartNotifyWork.Companion.APP_SCHEDULE_WORK
 import com.meimtiaz.addschedule.databinding.FragmentAddScheduleBinding
 import com.meimtiaz.common.base.BaseFragment
 import com.meimtiaz.common.dateparser.DateTimeFormat
 import com.meimtiaz.common.dateparser.DateTimeParser
+import com.meimtiaz.common.dateparser.DateTimeParser.getCurrentDeviceDateTime
 import com.meimtiaz.common.extfun.IntentKey
 import com.meimtiaz.common.extfun.clickWithDebounce
 import com.meimtiaz.common.extfun.getTextFromTv
@@ -112,14 +112,14 @@ class AddScheduleFragment:BaseFragment<FragmentAddScheduleBinding>(){
                 showMessage(getString(com.meimtiaz.assets.R.string.message_please_give_time_for_schedule_date))
                 return@clickWithDebounce
             }
-            val currentTime = System.currentTimeMillis()
-            val customTime = DateTimeParser.convertDateFormatToMilliSeconds(DateTimeFormat.outputDMYHM, binding.scheduleDateTv.getTextFromTv() +" "+ binding.scheduleTimeTv.getTextFromTv())
-            if (customTime > currentTime) {
+            val currentTime = DateTimeParser.convertDateFormatToMilliSeconds(DateTimeFormat.outputDMYHM, getCurrentDeviceDateTime(DateTimeFormat.outputDMYHM))
+            val scheduleTime = DateTimeParser.convertDateFormatToMilliSeconds(DateTimeFormat.outputDMYHM, binding.scheduleDateTv.getTextFromTv() +" "+ binding.scheduleTimeTv.getTextFromTv())
+
+            if (scheduleTime > currentTime ) {
                 val data = Data.Builder().putString(APP_SCHEDULE_PACKAGE_NAME, selectedPackageName).build()
-                val delay = customTime - currentTime
+                val delay = scheduleTime - currentTime
                 appScheduleWork(delay, data)
                 insertAppSchedule()
-
             } else {
                 Snackbar.make(binding.root, getString(com.meimtiaz.assets.R.string.message_please_give_a_valid_date_time), Snackbar.LENGTH_LONG).show()
             }
@@ -132,7 +132,7 @@ class AddScheduleFragment:BaseFragment<FragmentAddScheduleBinding>(){
             .setInitialDelay(delay, TimeUnit.MILLISECONDS).setInputData(data).build()
         val instanceWorkManager = WorkManager.getInstance(requireContext())
         instanceWorkManager.enqueueUniqueWork(selectedPackageName,
-            ExistingWorkPolicy.APPEND, notificationWork)
+            ExistingWorkPolicy.REPLACE, notificationWork)
     }
 
     /** storing app schedule data in local database **/
@@ -164,7 +164,7 @@ class AddScheduleFragment:BaseFragment<FragmentAddScheduleBinding>(){
                 this.setHour(previousSelectedTime[0].toInt())
                 this.setMinute(previousSelectedTime[1].toInt())
             }else{
-                val currentTime = DateTimeParser.addOneHourWithCurrentTime().split(":")
+                val currentTime = DateTimeParser.timePicker().split(":")
                 this.setHour(currentTime[0].toInt())
                 this.setMinute(currentTime[1].toInt())
             }

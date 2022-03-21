@@ -127,7 +127,7 @@ class EditScheduleFragment:BaseFragment<FragmentEditScheduleBinding>() {
                 this.setHour(previousSelectedTime[0].toInt())
                 this.setMinute(previousSelectedTime[1].toInt())
             }else{
-                val currentTime = DateTimeParser.addOneHourWithCurrentTime().split(":")
+                val currentTime = DateTimeParser.timePicker().split(":")
                 this.setHour(currentTime[0].toInt())
                 this.setMinute(currentTime[1].toInt())
             }

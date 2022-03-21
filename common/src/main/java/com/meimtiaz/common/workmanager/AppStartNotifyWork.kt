@@ -25,6 +25,5 @@ class AppStartNotifyWork(private var context: Context, params: WorkerParameters)
 
     companion object {
         const val APP_SCHEDULE_PACKAGE_NAME = "APP_SCHEDULE_PACKAGE_NAME"
-        const val APP_SCHEDULE_WORK = "APP_SCHEDULE_WORK"
     }
 }

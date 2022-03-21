@@ -56,11 +56,11 @@ object DateTimeParser {
         }
     }
 
-    fun addOneHourWithCurrentTime() : String
+    fun timePicker() : String
     {
         return try {
             val calendar = Calendar.getInstance()
-            calendar.add(Calendar.HOUR, 1)
+            calendar.add(Calendar.HOUR, 0)
             val currentTime = SimpleDateFormat("HH:mm",Locale.getDefault()).format(calendar.time)
             currentTime
         }catch (e : ParseException) {
