@@ -24,4 +24,8 @@ class AppScheduleRepoImpl @Inject constructor(private val appScheduleDao : AppSc
     override suspend fun updateAppSchedule(params: UpdateAppScheduleUseCase.Params) {
         appScheduleDao.updateAppSchedule(params.appScheduleEntity)
     }
+
+    override suspend fun updateAppStartStatusSchedule(packageName: String, isAppStarted: Boolean) {
+        appScheduleDao.updateAppStartStatus(packageName, isAppStarted)
+    }
 }

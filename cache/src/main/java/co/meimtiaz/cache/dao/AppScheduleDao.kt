@@ -20,4 +20,7 @@ interface AppScheduleDao {
 
     @Update
     suspend fun updateAppSchedule(appScheduleEntity: AppScheduleEntity)
+
+    @Query("UPDATE appschedules SET isAppStarted = :isAppStarted WHERE packageName = :packageName")
+    fun updateAppStartStatus(packageName: String, isAppStarted: Boolean?)
 }

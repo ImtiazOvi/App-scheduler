@@ -69,6 +69,33 @@
             app:layout_constraintTop_toTopOf="@+id/startAtTv"
             tools:text="Google Assistant Google Assistant Google Assistant" />
 
+
+
+        <com.meimtiaz.assets.CustomTV
+            android:id="@+id/startStatusTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/m16"
+            android:layout_marginTop="@dimen/m16"
+            android:text="@string/caption_start_status"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/startAtValueTv" />
+
+        <com.meimtiaz.assets.CustomBoldTv
+            android:id="@+id/startStatusValueTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/m16"
+            android:lineSpacingExtra="1dp"
+            android:maxLines="2"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/subtitle_1_regular"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/appNameValueTv"
+            app:layout_constraintTop_toTopOf="@+id/startStatusTv"
+            tools:text="Pendding" />
+
         <View
             android:id="@+id/dividerLine"
             android:layout_width="0dp"
@@ -77,13 +104,13 @@
             android:background="@color/gray"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/startAtValueTv" />
+            app:layout_constraintTop_toBottomOf="@+id/startStatusValueTv" />
 
         <com.meimtiaz.assets.CustomTV
             android:id="@+id/cancelTv"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@color/red"
+            android:background="@color/gray"
             android:gravity="center"
             android:text="@string/button_cancel"
             android:textColor="@color/white"
@@ -97,7 +124,7 @@
             android:id="@+id/editTv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@color/green"
+            android:background="@color/black"
             android:gravity="center"
             android:padding="@dimen/m16"
             android:text="@string/button_edit"

@@ -15,6 +15,7 @@
 
     <string name="caption_app_name">App Name:</string>
     <string name="caption_start_at">Start at:</string>
+    <string name="caption_start_status">Start status:</string>
     <string name="caption_installed_app_name">Installed App name</string>
     <string name="caption_select_date">Select Date</string>
     <string name="caption_select_time">Select Time</string>
@@ -33,6 +34,9 @@
     <string name="message_do_want_to_cancel_schedule">Do you want to cancel the schedule?</string>
     <string name="message_schedule_deleted_successfully">Schedule deleted successfully</string>
     <string name="message_please_give_a_valid_date_time">Please give a valid date time</string>
+
+    <string name="status_pending">Pending</string>
+    <string name="status_success">Success</string>
 
 
 

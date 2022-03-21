@@ -34,6 +34,9 @@ class SchedulesAdapter(
         if (item.startAt!!.isNotEmpty())
             binding.startAtValueTv.text = item.startAt
 
+        if (item.isAppStarted!!) binding.startStatusValueTv.text = application.getString(com.meimtiaz.assets.R.string.status_success)
+        else binding.startStatusValueTv.text = application.getString(com.meimtiaz.assets.R.string.status_pending)
+
         binding.cancelTv.clickWithDebounce {
             scheduleItemCancelCallBack?.invoke(item)
         }

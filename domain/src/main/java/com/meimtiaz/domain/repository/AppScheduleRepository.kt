@@ -10,4 +10,5 @@ interface AppScheduleRepository {
     fun getAllAppSchedule(): LiveData<List<AppScheduleEntity>>
     suspend fun deleteAppScheduleById(appScheduleId:Int)
     suspend fun updateAppSchedule(params: UpdateAppScheduleUseCase.Params)
+    suspend fun updateAppStartStatusSchedule(packageName: String, isAppStarted: Boolean)
 }
