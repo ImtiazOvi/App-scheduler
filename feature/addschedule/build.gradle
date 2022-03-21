@@ -8,4 +8,5 @@ plugins {
 apply from: "$rootDir/android-library.gradle"
 dependencies {
     implementation project(ModulesDep.navigation)
+    implementation 'androidx.work:work-runtime:2.8.0-alpha01'
 }

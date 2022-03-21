@@ -2,6 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.8">
+      <module name="App-scheduler.buildSrc" target="11" />
       <module name="App_scheduler.app" target="11" />
       <module name="App_scheduler.assets" target="11" />
       <module name="App_scheduler.buildSrc" target="11" />

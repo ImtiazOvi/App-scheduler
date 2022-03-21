@@ -13,6 +13,5 @@ dependencies {
     implementation AppDep.navigationUi
     implementation AppDep.navigationFragment
     implementation project(ModulesDep.assets)
-
-
+    implementation 'androidx.work:work-runtime:2.8.0-alpha01'
 }
