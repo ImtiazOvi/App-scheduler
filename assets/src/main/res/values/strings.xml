@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">App Scheduler</string>
+    <string name="image_content_description">image_content_description</string>
+
+    <string name="button_cancel">Cancel</string>
+    <string name="button_edit">Edit</string>
+    <string name="button_done">Done</string>
+
+    <string name="title_home">Home</string>
+    <string name="title_add_schedule">Add Schedule</string>
+    <string name="title_edit_schedule">Edit Schedule</string>
+    <string name="title_schedule">Schedule</string>
+    <string name="title_search_app">Search App</string>
+
+    <string name="caption_app_name">App Name:</string>
+    <string name="caption_start_at">Start at:</string>
+    <string name="caption_start_status">Start status:</string>
+    <string name="caption_installed_app_name">Installed App name</string>
+    <string name="caption_select_date">Select Date</string>
+    <string name="caption_select_time">Select Time</string>
+
+    <string name="hint_search_app_name">Search app name</string>
+    <string name="hint_write_app_name">Write app name(Ex: Map)</string>
+
+    <string name="message_no_schedule_yet">No schedule yet</string>
+    <string name="message_please_give_app_name">Please give app name</string>
+    <string name="message_please_give_schedule_date">Please give a schedule date</string>
+    <string name="message_please_give_time_for_schedule_date">Please give time for schedule date</string>
+    <string name="message_successful">SuccessFul</string>
+    <string name="message_failed">Failed</string>
+    <string name="message_yes">Yes</string>
+    <string name="message_no">No</string>
+    <string name="message_do_want_to_cancel_schedule">Do you want to cancel the schedule?</string>
+    <string name="message_schedule_deleted_successfully">Schedule deleted successfully</string>
+    <string name="message_please_give_a_valid_date_time">Please give a valid date time</string>
+
+    <string name="status_pending">Pending</string>
+    <string name="status_success">Success</string>
+
+
+
+</resources>

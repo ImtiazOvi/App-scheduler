@@ -1,0 +1,25 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+apply from: "$rootDir/android-config-dependencies.gradle"
+dependencies {
+    implementation AppDep.appCompat
+    implementation AppDep.fragment
+    implementation AppDep.activity
+    implementation AppDep.material
+    implementation AppDep.liveData
+    implementation AppDep.viewModel
+    implementation AppDep.navigationUi
+    implementation AppDep.navigationFragment
+    implementation project(ModulesDep.assets)
+    implementation AppDep.hiltAndroid
+    implementation AppDep.dagger
+    kapt AppDep.hiltCompiler
+    kapt AppDep.daggerCompiler
+    implementation project(ModulesDep.domain)
+    implementation project(ModulesDep.cache)
+    implementation 'androidx.work:work-runtime:2.8.0-alpha01'
+}

@@ -1,0 +1,11 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+apply from: "$rootDir/android-config-dependencies.gradle"
+dependencies {
+    implementation AppDep.material
+    implementation AppDep.activity
+    implementation AppDep.coreKtx
+}

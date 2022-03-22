@@ -14,3 +14,15 @@ dependencyResolutionManagement {
 }
 rootProject.name = "App scheduler"
 include ':app'
+include ':assets'
+include ':common'
+include ':library:sharedpreference'
+include ':feature:home'
+include ':navigation'
+include ':model:entity'
+include ':domain'
+include ':cache'
+include ':feature:addschedule'
+include ':feature:searchapp'
+include ':data'
+include ':feature:editschedule'

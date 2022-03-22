@@ -1,43 +1,105 @@
 plugins {
     id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
-    compileSdk 31
-
+    compileSdk AppConfig.compileSdkVersion
     defaultConfig {
-        applicationId "com.meimtiaz.appscheduler"
-        minSdk 21
-        targetSdk 31
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        applicationId AppConfig.applicationId
+        minSdk AppConfig.minSdkVersion
+        targetSdk AppConfig.targetSdkVersion
+        versionCode AppConfig.versionCode
+        versionName AppConfig.versionName
+        testInstrumentationRunner AppConfig.testRunner
     }
 
     buildTypes {
-        release {
+        debug {
             minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    renameAPK(applicationVariants, defaultConfig)
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = "1.8"
+    }
+
+    buildFeatures{
+        viewBinding  true
     }
 }
 
+def renameAPK(applicationVariants, defaultConfig) {
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def formattedDate = new Date().format('dd-MM-yy')
+            outputFileName = "App Scheduler" + "_" +  defaultConfig.versionName + "_" + defaultConfig.versionCode + "_" + formattedDate + "_" + variant.name + ".apk"
+        }
+    }
+}
+
+
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation AppDep.coreKtx
+    implementation AppDep.material
+    implementation AppDep.appCompat
+    implementation AppDep.fragment
+    implementation AppDep.activity
+    implementation AppDep.recyclerview
+    implementation AppDep.cardView
+    implementation AppDep.viewModel
+    implementation AppDep.liveData
+    implementation AppDep.constraintLayout
+    implementation AppDep.preference
+    implementation AppDep.lifecycle
+
+
+
+    implementation AppDep.navigationUi
+    implementation AppDep.navigationFragment
+
+    implementation project(ModulesDep.domain)
+    implementation project(ModulesDep.data)
+    implementation project(ModulesDep.cache)
+    implementation project(ModulesDep.common)
+    implementation project(ModulesDep.assets)
+    implementation project(ModulesDep.navigation)
+
+    implementation project(ModulesDep.home)
+    implementation project(ModulesDep.addSchedule)
+    implementation project(ModulesDep.editschedule)
+    implementation project(ModulesDep.searchApp)
+
+    implementation AppDep.hiltAndroid
+    kapt AppDep.hiltCompiler
+    implementation AppDep.timber
+
+    implementation AppDep.room
+    implementation AppDep.roomRuntime
+    kapt AppDep.roomCompiler
+
+    testImplementation AppDep.junit
+    androidTestImplementation AppDep.extJunit
+    androidTestImplementation AppDep.espresso
+}
+
+kapt {
+    correctErrorTypes = true
 }
