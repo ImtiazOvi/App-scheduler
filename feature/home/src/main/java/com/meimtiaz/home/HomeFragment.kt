@@ -19,7 +19,6 @@ class HomeFragment: BaseFragment<FragmentHomeBinding>() {
     private val viewModel by viewModels<HomeViewModel>()
     private lateinit var adapter: SchedulesAdapter
 
-
     override fun initializeView(savedInstanceState: Bundle?) {
         /** @toolBarInc common toolbar title text changed **/
         binding.toolBarInc.toolbarTitleTv.text = getString(com.meimtiaz.assets.R.string.title_schedule)
@@ -43,16 +42,17 @@ class HomeFragment: BaseFragment<FragmentHomeBinding>() {
              }
         )
         requireActivity().setUpVerticalRecyclerView(binding.scheduleRv, adapter)
+    }
+
+    override fun onResume() {
+        super.onResume()
         getAllSchedule()
     }
 
-
     private fun getAllSchedule(){
-
         observe(viewModel.getAllAppSchedule()){
             adapter.submitList(it)
             binding.noScheduleTv.isVisible = it.isEmpty()
-
         }
     }
 

@@ -3,12 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/USER/Desktop/meldcx/App-scheduler/feature/addschedule/src/main/res/layout/fragment_add_schedule.xml" value="0.35989583333333336" />
-        <entry key="..\:/Users/USER/Desktop/meldcx/App-scheduler/feature/home/src/main/res/layout/item_schedule.xml" value="0.5" />
+        <entry key="assets/src/main/res/drawable/bg_solid_white_gray_stroke_r10.xml" value="0.101" />
+        <entry key="feature/home/src/main/res/layout/fragment_home.xml" value="0.14266304347826086" />
+        <entry key="feature/home/src/main/res/layout/item_schedule.xml" value="0.25" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

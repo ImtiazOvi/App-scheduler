@@ -85,4 +85,7 @@ dependencies {
     testImplementation AppDep.junit
     androidTestImplementation AppDep.extJunit
     androidTestImplementation AppDep.espresso
+
+    implementation 'androidx.work:work-runtime:2.8.0-alpha01'
+
 }

@@ -20,5 +20,6 @@ dependencies {
     kapt AppDep.hiltCompiler
     kapt AppDep.daggerCompiler
     implementation project(ModulesDep.domain)
+    implementation project(ModulesDep.cache)
     implementation 'androidx.work:work-runtime:2.8.0-alpha01'
 }

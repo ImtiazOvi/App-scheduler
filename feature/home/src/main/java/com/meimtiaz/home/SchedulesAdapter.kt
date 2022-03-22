@@ -3,12 +3,17 @@ package com.meimtiaz.home
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import com.meimtiaz.common.adapter.DataBoundListAdapter
+import com.meimtiaz.common.dateparser.DateTimeFormat
+import com.meimtiaz.common.dateparser.DateTimeParser
 import com.meimtiaz.common.extfun.clickWithDebounce
+import com.meimtiaz.common.extfun.getTextFromTv
 import com.meimtiaz.domain.localentity.AppScheduleEntity
 import com.meimtiaz.entity.EditAppScheduleIntentEntity
 import com.meimtiaz.home.databinding.ItemScheduleBinding
+import timber.log.Timber
 
 class SchedulesAdapter(
     private val application: Context,
@@ -34,8 +39,29 @@ class SchedulesAdapter(
         if (item.startAt!!.isNotEmpty())
             binding.startAtValueTv.text = item.startAt
 
-        if (item.isAppStarted!!) binding.startStatusValueTv.text = application.getString(com.meimtiaz.assets.R.string.status_success)
-        else binding.startStatusValueTv.text = application.getString(com.meimtiaz.assets.R.string.status_pending)
+
+        val currentTime = DateTimeParser.convertDateFormatToMilliSeconds(
+            DateTimeFormat.outputDMYHM,
+            DateTimeParser.getCurrentDeviceDateTime(DateTimeFormat.outputDMYHM)
+        )
+        val scheduleTime = DateTimeParser.convertDateFormatToMilliSeconds(DateTimeFormat.outputDMYHM, item.selectedDate!! +" "+item.selectedTime!!)
+
+
+        if (item.isAppStarted!!) {
+            binding.startStatusValueTv.text = application.getString(com.meimtiaz.assets.R.string.status_success)
+            binding.cancelTv.isVisible = false
+            binding.editTv.isVisible = false
+        } else {
+            if (scheduleTime < currentTime && !item.isAppStarted!!){
+                binding.cancelTv.isVisible = true
+                binding.editTv.isVisible = false
+            }else{
+                binding.cancelTv.isVisible = true
+                binding.editTv.isVisible = true
+            }
+            binding.startStatusValueTv.text = application.getString(com.meimtiaz.assets.R.string.status_pending )
+
+        }
 
         binding.cancelTv.clickWithDebounce {
             scheduleItemCancelCallBack?.invoke(item)
