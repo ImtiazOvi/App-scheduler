@@ -4,10 +4,10 @@
 - master
 
 # Screen -
-> Scheulde - See all stored Scheduler, from item user can cancel, edit schedule
-> Add Scheduler - Add schedule for start application in specific time
-> Search Device Installed applications - User can see a list of device installed applications, also can search by application name
-> Edit Scheduler - Already added scheudle, should be update from this screen.
+- Scheulde - See all stored Scheduler, from item user can cancel, edit schedule
+- Add Scheduler - Add schedule for start application in specific time
+- Search Device Installed applications - User can see a list of device installed applications, also can search by application name
+- Edit Scheduler - Already added scheudle, should be update from this screen.
 
 # Used technologies
 1. Activity
