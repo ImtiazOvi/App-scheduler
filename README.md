@@ -1,14 +1,15 @@
 # App-scheduler
-A simple device application scheduler application
-# Latest branch - master
+- A simple device application scheduler application
+# Latest branch
+- master
 
-Screen -
-# Scheulde - See all stored Scheduler, from item user can cancel, edit schedule
-# Add Scheduler - Add schedule for start application in specific time
-# Search Device Installed applications - User can see a list of device installed applications, also can search by application name
-# Edit Scheduler - Already added scheudle, should be update from this screen.
+# Screen -
+> Scheulde - See all stored Scheduler, from item user can cancel, edit schedule
+> Add Scheduler - Add schedule for start application in specific time
+> Search Device Installed applications - User can see a list of device installed applications, also can search by application name
+> Edit Scheduler - Already added scheudle, should be update from this screen.
 
-Used technologies
+# Used technologies
 1. Activity
 2. Fragment
 3. ViewGroups, Views
@@ -22,9 +23,10 @@ Used technologies
 11. Multimodule
 12. Clean architecture
 
+# App architecture
+![app_architecture](https://user-images.githubusercontent.com/55427038/159417572-76605e75-76d3-439c-8a81-35519f334d52.JPG)
 
-Screen UI Screenshots:
-
+# Screen UI Screenshots:
 ![ui_empty_schedule_list](https://user-images.githubusercontent.com/55427038/159417186-af5b1e8a-f027-448a-96c9-c5e53bc04f94.jpeg)
 ![ui_add_schedule](https://user-images.githubusercontent.com/55427038/159417261-ef57f6a0-e89a-4e43-92b8-74d2a24f37c0.jpeg)
 ![ui_app_search](https://user-images.githubusercontent.com/55427038/159417315-f4bd0be7-a395-40b2-89c6-eb780e894316.jpeg)
@@ -35,5 +37,4 @@ Screen UI Screenshots:
 ![ui_cancel_dialog](https://user-images.githubusercontent.com/55427038/159417465-068d94eb-a73a-4fac-a64e-1c50155e7e4c.jpeg)
 
 
-App architecture
-![app_architecture](https://user-images.githubusercontent.com/55427038/159417572-76605e75-76d3-439c-8a81-35519f334d52.JPG)
+
