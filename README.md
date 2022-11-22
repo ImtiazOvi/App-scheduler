@@ -37,4 +37,27 @@
 ![ui_cancel_dialog](https://user-images.githubusercontent.com/55427038/159417465-068d94eb-a73a-4fac-a64e-1c50155e7e4c.jpeg)
 
 
+# <item name="android:navigationBarColor">@color/whiteTrans</item>
+
+
+
+#full screen with status bar and nav bar control
+
+override fun initializeView(savedInstanceState: Bundle?) {
+
+        setFullScreen(window)
+        lightStatusBar(window)
+    }
+
+    fun setFullScreen(window: Window) {
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+    }
+
+    fun lightStatusBar(window: Window, isLight:Boolean=true, isLightNav:Boolean = true){
+        val wic = WindowInsetsControllerCompat(window, window.decorView)
+        wic.isAppearanceLightStatusBars = isLight
+        wic.isAppearanceLightNavigationBars = isLightNav
+    }
+
+
 
